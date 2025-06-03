@@ -1,4 +1,4 @@
-weather = input ("what today weather look like? (sunny/rainy/cold):") .lower()
+weather = input ("what's today weather look like? (sunny/rainy/cold):") .lower()
 
 if weather == "sunny":
     
