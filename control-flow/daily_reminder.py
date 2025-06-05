@@ -20,7 +20,7 @@ if time_bound == "yes":
     reminder += "_ is a high priority task that requires immediate attention today!"
     
 print("\nReminder")
-print(reminder)
+print("Reminder:", reminder)
     
     
         
