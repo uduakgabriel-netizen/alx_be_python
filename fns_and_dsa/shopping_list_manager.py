@@ -26,11 +26,11 @@ def remove_item(shopping_list):
 
 def view_list(shopping_list):
     if shopping_list:
-        print("\nYour Shopping List:")
+        print(f"\nYour Shopping List:")
         for index, item in enumerate(shopping_list, start=1):
             print(f"{index}. {item}")
     else:
-        print("Your shopping list is currently empty.")
+        print(f"Your shopping list is currently empty.")
 
 def main():
     shopping_list = []
