@@ -1,10 +1,10 @@
 # shopping_list_manager.py
 
 def display_menu():
-    print("\n==== Shopping List Menu ====")
-    print("1. Add an item")
-    print("2. Remove an item")
-    print("3. View shopping list")
+    print("\nShopping List Manager")  # Required exact text
+    print("1. Add Item")             # Required exact text
+    print("2. Remove Item")
+    print("3. View Shopping List")
     print("4. Exit")
 
 def add_item(shopping_list):
@@ -25,7 +25,7 @@ def remove_item(shopping_list):
 
 def view_list(shopping_list):
     if shopping_list:
-        print("\n🛒 Your Shopping List:")
+        print("\nYour Shopping List:")
         for index, item in enumerate(shopping_list, start=1):
             print(f"{index}. {item}")
     else:
@@ -45,7 +45,7 @@ def main():
         elif choice == "3":
             view_list(shopping_list)
         elif choice == "4":
-            print("Goodbye! 👋")
+            print("Goodbye!")
             break
         else:
             print("Invalid choice. Please enter a number from 1 to 4.")
