@@ -22,6 +22,7 @@ def remove_item(shopping_list):
         print(f"'{item}' has been removed from your shopping list.")
     else:
         print(f"'{item}' was not found in your shopping list.")
+        
 
 def view_list(shopping_list):
     if shopping_list:
