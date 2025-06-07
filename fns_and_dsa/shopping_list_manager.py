@@ -1,63 +1,65 @@
 def display_menu():
-    """Displays the main menu options for the shopping list manager."""
-    print("\nShopping List Manager")
-    print("1. Add item")
-    print("2. Remove item")
-    print("3. View list")
+    print("Shopping List Manager")
+    print("1. Add Item")
+    print("2. Remove Item")
+    print("3. View List")
     print("4. Exit")
 
-def add_item(shopping_list):
-    """Prompts the user for an item and adds it to the shopping list."""
-    item = input("Enter the item to add: ").strip()
-    if item:
-        shopping_list.append(item)
-        print(f"'{item}' has been added to the list.")
-    else:
-        print("Item cannot be empty. Please enter a valid item.")
-
-def remove_item(shopping_list):
-    """Prompts the user for an item and removes it from the shopping list."""
-    if not shopping_list:
-        print("The shopping list is currently empty. Nothing to remove.")
-        return
-
-    item = input("Enter the item to remove: ").strip()
-    if item in shopping_list:
-        shopping_list.remove(item)
-        print(f"'{item}' has been removed from the list.")
-    else:
-        print(f"'{item}' not found in the list.")
-
-def view_list(shopping_list):
-    """Displays the current items in the shopping list."""
-    if not shopping_list:
-        print("Your shopping list is empty.")
-    else:
-        print("\nYour Shopping List:")
-        for i, item in enumerate(shopping_list, 1):
-            print(f"{i}. {item}")
-
 def main():
-    """Main function to run the shopping list manager."""
-    shopping_list = []  # Initialize an empty shopping_list as required
-
+    shopping_list = []
     while True:
-        display_menu()  # Call the display_menu function
-        try:
-            choice = int(input("Enter your choice: "))  # Read choice as an integer
-            if choice == 1:
-                add_item(shopping_list)
-            elif choice == 2:
-                remove_item(shopping_list)
-            elif choice == 3:
-                view_list(shopping_list)
-            elif choice == 4:
-                print("Exiting Shopping List Manager. Goodbye!")
-                break
+        display_menu()
+        
+        choice = input("Enter your choice: ")
+
+        if not choice.isdigit():
+          print("Invalid input. Please enter a number between 1 and 4.")
+          continue
+
+        choice = int(choice)
+
+        if choice == 1:
+            # Prompt for and add an item
+            item_name = input("Enter the item to add: ")
+
+            if item_name:
+                if item_name in shopping_list:
+                    print(f"The {item_name} is already on the list")
+                else:
+                    shopping_list.append(item_name)
+                    print(f"{item_name} added succesfully!")
+            else: 
+                print("You must enter an item!")
+            pass
+        
+        elif choice == 2:
+            # Prompt for and remove an item
+            item_name = input("Enter the item to remove: ")
+
+            if item_name in shopping_list:
+                shopping_list.remove(item_name)
+                print(f"{item_name} removed successfully!")
             else:
-                print("Invalid choice. Please enter a number between 1 and 4.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+                print(f"{item_name} not found in shopping list.")
+            pass
+        
+        elif choice == 3:
+            # Display the shopping list
+            if shopping_list != []:
+              print("Shopping list item(s):")
+              for item in shopping_list:
+                print(f"- {item}")
+            else:
+                print("They are no items on the shopping list. Enter 1 to add an item.")
+            pass
+        
+        elif choice == 4:
+            print("Exiting... Goodbye!")
+            break
+      
+        else:
+            print("Invalid choice. Please enter a number between 1-4.")
 
 if __name__ == "__main__":
+
     main()
